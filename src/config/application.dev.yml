@@ -11,3 +11,19 @@ server:
   api-prefix: api
   # 接口版本
   api-version: v1
+
+logs:
+  # 日志等级，参考 zapcore.Level（-1<=level<=5，-1 / DEBUG）
+  level: -1
+  # 日志等级颜色输出
+  colorful: false
+  # 日志路径
+  path: logs
+  # 文件大小，单位 M
+  max-size: 100
+  # 日志备份数量
+  max-backups: 100
+  # 日志存留天数
+  max-age: 30
+  # 日志是否压缩
+  compress: true

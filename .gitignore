@@ -15,3 +15,5 @@
 # vendor/
 # 忽略提交的目录和文件
 .idea
+logs
+*.log

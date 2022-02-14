@@ -11,5 +11,6 @@ func PingHandler(ctx *gin.Context) {
     ctx.JSON(http.StatusOK, gin.H{
         "name":    common.Conf.Server.Name,
         "message": "pong",
+        "version": "build.2022.02.14.161700",
     })
 }

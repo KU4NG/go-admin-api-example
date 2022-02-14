@@ -5,7 +5,6 @@ import (
     "fmt"
     "go-admin-api-example/src/common"
     "go-admin-api-example/src/initialize"
-    "log"
     "net/http"
     "os"
     "os/signal"
@@ -14,8 +13,11 @@ import (
 )
 
 func main() {
-    // 初始化读取加载配置文件
+    // 配置初始化
     initialize.Config()
+
+    // 日志初始化
+    initialize.Logger()
 
     // 路由初始化
     r := initialize.Router()
@@ -32,7 +34,7 @@ func main() {
         err := srv.ListenAndServe()
         // 启动时候如果报错，并且错误不是关闭服务器，则打印日志并退出
         if err != nil && err != http.ErrServerClosed {
-            log.Println(fmt.Sprintf("服务启动失败，%s", err.Error()))
+            common.Log.Error(fmt.Sprintf("服务启动失败，%s", err.Error()))
         }
     }()
 
@@ -48,12 +50,12 @@ func main() {
     <-quit // 等待信号传入
 
     // 当停止信号传入时，给程序 5 秒钟的处理时间，避免没有处理完请求给客户端报错
-    log.Println("开始停止服务...")
+    common.Log.Warn("开始停止服务...")
     ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
     defer cancel()
     err := srv.Shutdown(ctx)
     if err != nil {
-        log.Println(fmt.Sprintf("服务停止失败：%s", err.Error()))
+        common.Log.Error(fmt.Sprintf("服务停止失败：%s", err.Error()))
     }
-    log.Println("服务停止完成")
+    common.Log.Info("服务停止完成")
 }
