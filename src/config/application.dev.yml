@@ -7,3 +7,7 @@ server:
   port: 20001
   # 运行模式（debug | release）
   mode: debug
+  # 接口前缀
+  api-prefix: api
+  # 接口版本
+  api-version: v1

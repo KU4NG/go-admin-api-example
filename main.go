@@ -3,7 +3,6 @@ package main
 import (
     "context"
     "fmt"
-    "github.com/gin-gonic/gin"
     "go-admin-api-example/src/common"
     "go-admin-api-example/src/initialize"
     "log"
@@ -18,18 +17,8 @@ func main() {
     // 初始化读取加载配置文件
     initialize.Config()
 
-    // 设置运行模式
-    gin.SetMode(common.Conf.Server.Mode)
-
-    // 初始化一个不包含任何中间件的路由引擎
-    r := gin.New()
-
-    r.GET("/ping", func(ctx *gin.Context) {
-        ctx.JSON(http.StatusOK, gin.H{
-            "message": "pong",
-            "name":    common.Conf.Server.Name,
-        })
-    })
+    // 路由初始化
+    r := initialize.Router()
 
     // 配置服务优雅启动
     // 参考官方文档：https://gin-gonic.com/zh-cn/docs/examples/graceful-restart-or-stop/

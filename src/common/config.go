@@ -7,8 +7,10 @@ type Configuration struct {
 
 // ServerConfiguration 系统配置项
 type ServerConfiguration struct {
-    Name string `mapstructure:"name" json:"name"`
-    Host string `mapstructure:"host" json:"host"`
-    Port int    `mapstructure:"port" json:"port"`
-    Mode string `mapstructure:"mode" json:"mode"`
+    Name       string `mapstructure:"name" json:"name"`
+    Host       string `mapstructure:"host" json:"host"`
+    Port       int    `mapstructure:"port" json:"port"`
+    Mode       string `mapstructure:"mode" json:"mode"`
+    ApiPrefix  string `mapstructure:"api-prefix" json:"apiPrefix"`
+    ApiVersion string `mapstructure:"api-version" json:"apiVersion"`
 }
