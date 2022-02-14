@@ -18,6 +18,7 @@ func Router() *gin.Engine {
 
     // 中间件
     r.Use(middleware.AccessLog) // 访问日志中间件
+    r.Use(middleware.Cors)      // 跨域中间件
 
     // 创建路由组，增加 /api 前缀
     apiGroup := r.Group(common.Conf.Server.ApiPrefix)
