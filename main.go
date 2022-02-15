@@ -19,6 +19,9 @@ func main() {
     // 日志初始化
     initialize.Logger()
 
+    // 数据库初始化
+    initialize.Mysql()
+
     // 路由初始化
     r := initialize.Router()
 

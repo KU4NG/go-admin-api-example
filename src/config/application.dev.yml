@@ -27,3 +27,33 @@ logs:
   max-age: 30
   # 日志是否压缩
   compress: true
+
+mysql:
+  # 数据库地址
+  host: 192.168.100.32
+  # 数据库端口
+  port: 3306
+  # 数据库名称
+  database: go-admin-example
+  # 数据库用户
+  username: example
+  # 数据库密码
+  password: example
+  # 数据库编码
+  charset: utf8mb4
+  # 数据库字符集
+  collation: utf8mb4_general_ci
+  # 数据库连接串
+  query: parseTime=True&loc=Local&timeout=10000ms
+  # 表名前缀
+  table-prefix: go
+  # 空闲连接数
+  max-idle-conns: 10
+  # 最大连接数量
+  max-open-conns: 100
+  # 连接最大可复用时间，分钟
+  max-idle-time: 60
+  # 是否打印日志，false 只打印 Error 级别日志
+  log-mode: false
+  # 日志级别(1-3，Info，Warn，Error)
+  log-level: 1
